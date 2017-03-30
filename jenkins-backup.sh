@@ -10,7 +10,7 @@ readonly JENKINS_HOME=$1
 readonly DEST_FILE=$2
 readonly CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 readonly TMP_DIR="$CUR_DIR/tmp"
-readonly ARC_NAME="jenkins-backup"
+readonly ARC_NAME="$JENKINS_HOME"
 readonly ARC_DIR="$TMP_DIR/$ARC_NAME"
 readonly TMP_TAR_NAME="$TMP_DIR/archive.tar.gz"
 
@@ -60,7 +60,7 @@ function backup_jobs {
     else
       true
       #echo "Job! $JENKINS_HOME/jobs/$rel_depth/$job_name"
-    fi 
+    fi
   done
   #echo "Done in $(pwd)"
   cd -
